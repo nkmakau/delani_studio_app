@@ -1,10 +1,10 @@
 let fs = require('fs')
 
-class logger {
+class Logger {
     //Create a constructor for the logger class and pass in the name of the module that each log will belong to.
     constructor(module) {
 
-        this module = module
+        this.module = module
 
         //create  write stream so that we'll be able to write the log messages into the log file 
         let logStream = fs.createWriteStream('./logs', {flags: 'a'})
@@ -40,4 +40,4 @@ class logger {
     }
 }
 
-module.exports = logger
+module.exports = Logger
