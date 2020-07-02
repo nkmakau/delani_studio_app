@@ -1,5 +1,7 @@
 let http = require('http');
 let url = require('url')
+let Logger = require('/logger')
+let logger = new Logger('server')
 
 //A function to wrap our server functionality so that we can export it
 let start = function (route, handle) {
@@ -7,15 +9,19 @@ let start = function (route, handle) {
     function onRequest(request, response) {
         //Extracting the pathname from the url requested
         let pathname = url.parse(request.url).pathname
+
         console.log("Request for " + pathname + " has been received.")
+        console.log("Request for " + pathname + " has been recieved with the request method " + request.method)
 
         //inject the response object into the router fuction
         route(handle, pathname, response);
     }
 
-    http.createServer(onRequest).listen(8000);
+    let PORT = process.env.PORT || 8000
 
-    console.log("Server has started")
+    http.createServer(onRequest).listen(PORT);
+    logger.info('Server has started on port: ${PORT}')
+    console.log('Server has started on port: ${PORT}')
 }
 exports.start = start;
 
