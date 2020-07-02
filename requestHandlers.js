@@ -1,6 +1,12 @@
 //function for handling index.hmtl business logic
 function index() {
     console.log("Request handler for index was called.")
+    //function that will delay for 10 seconds before returning text.
+    function sleep(milliseconds) {
+        var startTime = new Date().getTime()
+        while (new Date().getTime() <startTime + milliseconds){}
+    };
+    sleep(10000);
     return "Welcome to Delani Studio"
 }
 
