@@ -1,7 +1,7 @@
 let http = require('http');
 let url = require('url')
 let Logger = require('./logger')
-let logger = new Logger('server')
+let logger = new Logger('Server')
 
 //A function to wrap our server functionality so that we can export it
 let start = function (route, handle) {
@@ -20,8 +20,8 @@ let start = function (route, handle) {
     let PORT = process.env.PORT || 8000
 
     http.createServer(onRequest).listen(PORT);
-    logger.info('Server has started on port: ${PORT}')
-    console.log('Server has started on port: ${PORT}')
+    
+    console.log(`Server has started on port: ${PORT}`)
 }
 exports.start = start;
 

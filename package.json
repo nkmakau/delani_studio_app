@@ -1,0 +1,24 @@
+{
+  "name": "delani_studio_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines":{
+    "node": "10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkmakau/delani_studio_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkmakau/delani_studio_app/issues"
+  },
+  "homepage": "https://github.com/nkmakau/delani_studio_app#readme"
+}

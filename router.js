@@ -4,8 +4,8 @@ let Logger = require('./logger')
 let logger = new Logger('Router')
 
 function route(handle, pathname, response, request) {
-    logger.info("About to route a request for" + pathname);
-    console.log("About to route a request for" + pathname);
+    logger.info("About to route a request for " + pathname);
+    console.log("About to route a request for " + pathname);
 
     //check if the request url is a function. since we mapped our expected request urls to a function in requerst handlers
     if (typeof handle[pathname] === 'function') {
@@ -23,7 +23,7 @@ function route(handle, pathname, response, request) {
     } else if (pathname.match('\..js$')) {
         let jsPath = path.join(__dirname, 'public', pathname);
         let jsStream = fs.createReadStream(jsPath)
-        response.writeHead(200, { "Content-Type": "text/js" })
+        response.writeHead(200, { "Content-Type": "application/js" })
         jsStream.pipe(response);
     } else {
         logger.info("No request handler found for " + pathname);
