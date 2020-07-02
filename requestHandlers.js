@@ -1,7 +1,10 @@
 let fs = require("fs");
+let Logger = require('./logger')
+let logger = new Logger('RequestHandlers')
 
 //function for handling index.hmtl business logic
 function index(response) {
+    logger.info("Request handler for index was called.")
     console.log("Request handler for index was called.")
 
     //Reading the index.html file and attaching the content to the response

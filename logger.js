@@ -7,7 +7,7 @@ class Logger {
         this.module = module
 
         //create  write stream so that we'll be able to write the log messages into the log file 
-        let logStream = fs.createWriteStream('./logs', {flags: 'a'})
+        let logStream = fs.createWriteStream('./logs', { flags: 'a' })
 
         //create function that logs info level messages
         let info = function (msg) {
@@ -24,7 +24,7 @@ class Logger {
         this.info = info
 
         //Create a function  that logs error level messages
-        let error = function(msg){
+        let error = function (msg) {
             //Define the log level
             var level = 'error'.toUpperCase()
 

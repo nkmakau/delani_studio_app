@@ -1,0 +1,2 @@
+${new Date()} | ${level} | ${module} | ${msg} 
+${new Date()} | ${level} | ${module} | ${msg} 
