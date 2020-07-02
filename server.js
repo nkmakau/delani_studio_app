@@ -1,5 +1,6 @@
 let http = require('http');
 let url = require('url')
+
 //A function to wrap our server functionality so that we can export it
 let start = function (route, handle) {
 
@@ -8,11 +9,8 @@ let start = function (route, handle) {
         let pathname = url.parse(request.url).pathname
         console.log("Request for " + pathname + " has been received.")
 
-        var content = route(handle, pathname);
-
-        response.writeHead(200, { "Content-type": "text/plain" });
-        response.write(content);
-        response.end();
+        //inject the response object into the router fuction
+        route(handle, pathname, response);
     }
 
     http.createServer(onRequest).listen(8000);
