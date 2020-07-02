@@ -15,7 +15,7 @@ class Logger {
             var level = 'info'.toUpperCase()
 
             //Format the message into the desired format
-            let message = '${new Date()} | ${level} | ${module} | ${msg} \n'
+            let message = `${new Date()} | ${level} | ${module} | ${msg} \n`
 
             //Write the formated message logged into the log file
             logStream.write(message)
@@ -29,7 +29,7 @@ class Logger {
             var level = 'error'.toUpperCase()
 
             //format the message into the desired format
-            let message = '${new Date()} | ${level} | ${module} | ${msg} \n'
+            let message = `${new Date()} | ${level} | ${module} | ${msg} \n`
 
             //Write the formated message logged into the log file
             logStream.write(message)
