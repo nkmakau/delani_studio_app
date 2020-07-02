@@ -1,27 +1,30 @@
 let exec = require("child_process").exec;
+
 //function for handling index.hmtl business logic
-function index() {
+function index(response) {
     console.log("Request handler for index was called.")
-    //function that will delay for 10 seconds before returning text.
-    var content = "empty";
-
+   
     exec("ls -lah", function(error, stdout, stderr) {
-        content = stdout;
+       response.writeHead(200, {"Content-Type": "text/plain"});
+       response.write(stdout);
+       response.end();
     })
-
-    return content
 }
 
 //function for handling about.html business logic
-function about() {
+function about(response) {
     console.log("Request handler for about was called.")
-    return "Get to know all about us and what we do here at Delani Studio"
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write ("Get to know all about us and what we do here at Delani Studio");
+    response.end();
 }
 
 //function for handling portfolio.html business logic
-function portfolio() {
+function portfolio(response) {
     console.log("Request for handling portfolio was called.")
-    return "These are some of our portfolio projects."
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write ("These are some of our portfolio projects.");
+    response.end();
 }
 
 exports.index = index;
