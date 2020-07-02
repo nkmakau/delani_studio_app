@@ -1,15 +1,20 @@
+const { fstat } = require("fs");
+
 let exec = require("child_process").exec;
 
 //function for handling index.hmtl business logic
 function index(response) {
     console.log("Request handler for index was called.")
    
-    exec("ls -lah", function(error, stdout, stderr) {
-       response.writeHead(200, {"Content-Type": "text/plain"});
-       response.write(stdout);
-       response.end();
+    //Reading the index.html file and attaching the content to the response
+    fs.readFile("./public/index.html", function(error, data){
+        if(error){
+            console.log(err);
+        }
+        response.writeHead(200, {"Content-Type": "text/html"});
+        response.write(data);
+        response.end();
     })
-}
 
 //function for handling about.html business logic
 function about(response) {
